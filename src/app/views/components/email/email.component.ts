@@ -31,7 +31,7 @@ export class EmailComponent implements OnInit {
   private isOperationsUpdateAndDelete: boolean;
   private colourOperationsUpdateAndDelete: string;
 
-  @ViewChild('chosenuser') public ngSelect: NgSelectComponent;
+  @ViewChild('chosenuser', {static: false}) public ngSelect: NgSelectComponent;
 
 
 

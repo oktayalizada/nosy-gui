@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';

@@ -15,11 +15,11 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './views/auth/login/login.module#LoginModule'
+    loadChildren: () => import('./views/auth/login/login.module').then(m => m.LoginModule)
   },
   {
     path: 'register',
-    loadChildren: './views/auth/register/register.module#RegisterModule',
+    loadChildren: () => import('./views/auth/register/register.module').then(m => m.RegisterModule),
   },
   {
     path: '',
@@ -30,7 +30,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule',
+        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
         canActivate: [AuthGuardService]
 
       },
@@ -38,26 +38,26 @@ export const routes: Routes = [
 
       {
         path: 'input-system',
-        loadChildren: './views/input-system/input-system.module#InputSystemModule',
+        loadChildren: () => import('./views/input-system/input-system.module').then(m => m.InputSystemModule),
         canActivate: [AuthGuardService]
 
       },
       {
         path: 'email',
-        loadChildren: './views/components/email/email.module#EmailModule',
+        loadChildren: () => import('./views/components/email/email.module').then(m => m.EmailModule),
         canActivate: [AuthGuardService]
 
 
       },
       {
         path: 'profile',
-        loadChildren: './views/components/profile/profile.module#ProfileModule',
+        loadChildren: () => import('./views/components/profile/profile.module').then(m => m.ProfileModule),
         canActivate: [AuthGuardService]
 
       },
       {
         path: 'pusher',
-        loadChildren: './views/components/pusher/pusher.module#PusherModule',
+        loadChildren: () => import('./views/components/pusher/pusher.module').then(m => m.PusherModule),
         canActivate: [AuthGuardService]
 
       },
@@ -69,7 +69,7 @@ export const routes: Routes = [
       },*/
       {
         path: 'manual-email-sender',
-        loadChildren: './views/components/manual-email-sender/manual-email-sender.module#ManualEmailSenderModule',
+        loadChildren: () => import('./views/components/manual-email-sender/manual-email-sender.module').then(m => m.ManualEmailSenderModule),
         canActivate: [AuthGuardService]
 
       },

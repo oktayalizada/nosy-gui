@@ -27,7 +27,7 @@ export class ManualEmailSenderComponent implements OnInit {
 
   private selectedInputSystemId: string;
 
-  @ViewChild('chosenuser') public ngSelect: NgSelectComponent;
+  @ViewChild('chosenuser', {static: false}) public ngSelect: NgSelectComponent;
 
   private mailSender: FormGroup;
   constructor(private nosyHttpService: NosyHttpService, private emailHttpService: EmailHttpService) {
