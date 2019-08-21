@@ -16,11 +16,11 @@
 
 
                   <ng-select [(items)]="inputSystems"
-                             bindLabel="inputSystemName"
-                             bindValue="inputSystemId"
+                             bindLabel="name"
+                             bindValue="id"
                              name="inputSystemNameNg"
                              [(ngModel)]="selectedInputSystemId"
-                             (change)="onChangeInputSystemFirstForm($event)"
+                             (change)="onChangeInputSystemFirstForm()"
                               (clear)="onClearInputSystem()">
                   </ng-select>
                 </div>
@@ -74,8 +74,8 @@
                     <label>Email Templates</label>
                     <ng-select  #chosenuser [(items)]="emailTemplates"
 
-                                bindLabel="emailTemplateName"
-                               bindValue="emailTemplateId"
+                                bindLabel="name"
+                               bindValue="id"
                                name="inputSystemNameNg"
                                [(ngModel)]="selectedEmailTemplateId"
                                (change)="onChangeEmailTemplateFirstForm($event)"
@@ -109,7 +109,7 @@
                     <label for="emailTemplateName">Email Template Name</label>
                     <input type="text" class="form-control"
                            id="emailTemplateName" name="emailTemplateName"
-                           ngModel="{{selectedEmailTemplate.emailTemplateName}}">
+                           ngModel="{{selectedEmailTemplate.name}}">
                   </div>
 
                 </div>
@@ -130,7 +130,7 @@
                   <div class="form-group">
                     <label for="emailFromProvider">From Provider</label>
                     <select id="emailFromProvider" name="emailFromProvider"
-                            class="form-control" [(ngModel)]="selectedEmailTemplate.emailFromProvider" required>
+                            class="form-control" [(ngModel)]="selectedEmailTemplate.fromProvider" required>
                       <option *ngFor="let provider of availableProviders"
                               [ngValue]="provider" #updateSystemName
                       >
@@ -148,7 +148,7 @@
                     <label for="emailTemplateTo1">Email To</label>
                     <textarea type="text" class="form-control" #emailTemplateTo1
                               id="emailTemplateTo1" name="emailTemplateTo1"
-                              ngModel="{{selectedEmailTemplate.emailTemplateTo}}" required>
+                              ngModel="{{selectedEmailTemplate.to}}" required>
                   </textarea>
                   </div>
 
@@ -162,7 +162,7 @@
                     <label for="emailTemplateCc1">Email CC</label>
                     <textarea type="text" class="form-control" #emailTemplateCc1
                               id="emailTemplateCc1" name="emailTemplateCc1"
-                              ngModel="{{selectedEmailTemplate.emailTemplateCc}}">
+                              ngModel="{{selectedEmailTemplate.cc}}">
                   </textarea>
                   </div>
 
@@ -227,8 +227,8 @@
             <div class="form-group">
               <label>Input System Name*</label>
               <ng-select [(items)]="inputSystems"
-                         bindLabel="inputSystemName"
-                         bindValue="inputSystemId"
+                         bindLabel="name"
+                         bindValue="id"
                          name="inputSystemNameNg"
                          [(ngModel)]="inputSystemIdFotTemplateCreationId"
                          (change)="newTemplateInputSystemOnChange($event)"

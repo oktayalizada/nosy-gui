@@ -52,18 +52,18 @@ export class EmailComponent implements OnInit {
 
 
 
-  onClearInputSystem(){
+  onClearInputSystem() {
     this.isSelectedEmailTemplate = false;
     this.isSelectedInputSystem = false;
 
   }
 
-  onClearEmailTemplate(){
+  onClearEmailTemplate() {
     this.isSelectedEmailTemplate = false;
 
   }
   onChangeInputSystemFirstForm() {
-    if(this.selectedInputSystemId !== null) {
+    if (this.selectedInputSystemId !== null) {
 
     this.allFormReset();
     this.ngSelect.clearModel();
@@ -123,7 +123,7 @@ export class EmailComponent implements OnInit {
     } else {
 
       let emailTemplate: EmailTemplate;
-      let emailTo = formInputSystem.emailTemplateTo1.trim().split(',');
+      const emailTo = formInputSystem.emailTemplateTo1.trim().split(',');
 
       emailTo.forEach(function (part, index, theArray) {
         theArray[index] = theArray[index].trim();
@@ -132,7 +132,7 @@ export class EmailComponent implements OnInit {
       emailTemplate = new EmailTemplate(formInputSystem.emailFromProvider, formInputSystem.emailTemplateName, emailTo,
         formInputSystem.fromAddress, 0, 0, 0, formInputSystem.subject, formInputSystem.text)
 
-      if (formInputSystem.emailTemplateCc1 != '') {
+      if (formInputSystem.emailTemplateCc1 !== '') {
         const emailCc = formInputSystem.emailTemplateCc1.trim().split(',');
         emailCc.forEach(function (part, index, theArray) {
           theArray[index] = theArray[index].trim();
@@ -146,12 +146,12 @@ export class EmailComponent implements OnInit {
         this.selectedInputSystemId, this.selectedEmailTemplateId).subscribe(
         (response: any) => {
           this.firstForm('green', 'Email Template '
-            + this.selectedEmailTemplate.emailTemplateName + ' updated!',
+            + this.selectedEmailTemplate.name + ' updated!',
             true)
           this.selectedEmailTemplate = response;
 
           this.emailTemplates.splice(this.emailTemplates.indexOf(
-            this.emailTemplates.find(x => x.emailTemplateId === this.selectedEmailTemplateId)), 1);
+            this.emailTemplates.find(x => x.id === this.selectedEmailTemplateId)), 1);
           this.emailTemplates = [...this.emailTemplates, response]
 
         },
@@ -170,9 +170,9 @@ export class EmailComponent implements OnInit {
 
     this.emailHttpService.deleteEmailTemplate(this.selectedEmailTemplateId, this.selectedInputSystemId).subscribe(
       (response: Response) => {
-        this.firstForm('green', 'Successfully Deleted ' + this.selectedEmailTemplate.emailTemplateName + 'from the System', true);
+        this.firstForm('green', 'Successfully Deleted ' + this.selectedEmailTemplate.name + 'from the System', true);
         this.emailTemplates.splice(this.emailTemplates.indexOf(
-          this.emailTemplates.find(x => x.emailTemplateId === this.selectedEmailTemplateId)), 1);
+          this.emailTemplates.find(x => x.id === this.selectedEmailTemplateId)), 1);
         this.emailTemplates = [...this.emailTemplates];
 
       })
@@ -202,7 +202,7 @@ export class EmailComponent implements OnInit {
       emailTemplate = new EmailTemplate(newTemplate.newFromProvider, newTemplate.newEmailTemplateName, emailTo, newTemplate.newFromAddress,
         0, 0, 0, newTemplate.newSubject, newTemplate.newEmailText);
 
-      if (newTemplate.newEmailCc != '') {
+      if (newTemplate.newEmailCc !== '') {
 
 
         const emailCc = newTemplate.newEmailCc.trim().split(',');
@@ -214,7 +214,7 @@ export class EmailComponent implements OnInit {
       }
       this.emailHttpService.postNewTemplate(emailTemplate, this.inputSystemIdFotTemplateCreationId).subscribe(
         (response: Response) => {
-          this.secondForm('green', 'New Template: ' + emailTemplate.emailTemplateName + ' created', true)
+          this.secondForm('green', 'New Template: ' + emailTemplate.name + ' created', true)
         },
         err => {
 
