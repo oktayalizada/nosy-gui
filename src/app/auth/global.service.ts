@@ -2,24 +2,21 @@ import {Injectable} from '@angular/core';
 import {ClientToken} from '../views/auth/login/client-token';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment.prod';
 
 @Injectable()
 export class GlobalService {
+
   private baseUrl = environment.backendUrl;
 
-  constructor(private cookiesService: CookieService, private router: Router, private http: HttpClient) {
-  }
-
+  constructor(private cookiesService: CookieService, private router: Router, private http: HttpClient) {}
 
   public setLocalToken(tokens: ClientToken) {
-
-      this.cookiesService.set('accessToken', tokens.accessToken);
-    }
+    this.cookiesService.set('accessToken', tokens.accessToken);
+  }
 
   public getLocalToken() {
-
     if (this.cookiesService.get('accessToken') != null) {
       return this.cookiesService.get('accessToken');
     }
@@ -27,10 +24,18 @@ export class GlobalService {
   }
 
   public isAuthenticated() {
-    return this.http.post(this.baseUrl + '/auth/status', { 'accessToken': this.cookiesService.get('accessToken')});
+    return this.http.post(this.baseUrl + '/auth/status', {'accessToken': this.cookiesService.get('accessToken')});
   }
+
   public cleanCookies() {
-     this.cookiesService.delete('accessToken', 'localhost');
-     this.router.navigateByUrl('/login');
+    this.cookiesService.delete('accessToken', 'localhost');
+    this.router.navigateByUrl('/login');
   }
+
+  public getAuthHeader() {
+    const token = this.getLocalToken();
+    const headers = new HttpHeaders({'Authorization' : 'bearer ' + token});
+    return { headers };
+  }
+
 }
