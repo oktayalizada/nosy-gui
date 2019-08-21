@@ -157,7 +157,7 @@ export class EmailComponent implements OnInit {
         },
         err => {
 
-          this.firstForm('red', err.error, true)
+          this.firstForm('red', err.error.message, true)
 
 
         });
@@ -218,7 +218,7 @@ export class EmailComponent implements OnInit {
         },
         err => {
 
-          this.secondForm('red', err.error, true)
+          this.secondForm('red', err.error.message, true)
 
 
         }

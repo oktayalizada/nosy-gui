@@ -74,7 +74,7 @@ export class InputSystemComponent implements OnInit {
           this.inputSystems = [ ... this.inputSystems ];
         },
         err => {
-          this.firstForm('red', err.error, true);
+          this.firstForm('red', err.error.message, true);
         })
     }
 
@@ -105,7 +105,7 @@ export class InputSystemComponent implements OnInit {
         this.secondForm('green', 'successfully created Input System ' + inputSystemName, true);
         this.inputSystems = [ ... this.inputSystems, response];
       }, err => {
-          this.secondForm('red', err.error, true)
+          this.secondForm('red', err.error.message, true)
       }
       )
     }
