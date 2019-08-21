@@ -27,7 +27,7 @@ export class GlobalService {
   }
 
   public isAuthenticated() {
-    return this.http.post(this.baseUrl + '/auth/status', this.cookiesService.get('accessToken') );
+    return this.http.post(this.baseUrl + '/auth/status', { 'accessToken': this.cookiesService.get('accessToken')});
   }
   public cleanCookies() {
      this.cookiesService.delete('accessToken', 'localhost');
