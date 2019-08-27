@@ -1,9 +1,9 @@
 export class InputSystem {
-  inputSystemId: string;
-  inputSystemName: String;
+  id: string;
+  name: String;
   emailTemplate: any;
 
   constructor(inputSystemName: string) {
-    this.inputSystemName = inputSystemName;
+    this.name = inputSystemName;
   }
 }

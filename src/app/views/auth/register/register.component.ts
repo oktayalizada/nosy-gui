@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
           this.router.navigateByUrl('/login');
 
         }, error1 => {
-            this.error = error1.error;
+            this.error = error1.error.message;
         });
   }
 }

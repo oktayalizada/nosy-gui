@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {GlobalService} from '../../../auth/global.service';
 import {environment} from '../../../../environments/environment.prod';
 
@@ -11,19 +11,11 @@ export class ProfileHttpService {
   }
 
   public getProfileInfo() {
-    const token = this.globalService.getLocalToken();
-    const headers = new HttpHeaders({'Authorization': 'bearer ' + token});
-    const _options = {headers: headers};
-
-
-    return this.http.get(this.baseUrl + '/profile', _options);
+    return this.http.get(this.baseUrl, this.globalService.getAuthHeader());
   }
 
-  public deleteProfile(username) {
-    const token = this.globalService.getLocalToken();
-    const headers = new HttpHeaders({'Authorization': 'bearer ' + token});
-    const _options = {headers: headers};
-    return this.http.delete(this.baseUrl + '/profile', _options);
+  public deleteProfile() {
+    return this.http.delete(this.baseUrl, this.globalService.getAuthHeader());
   }
 
 }

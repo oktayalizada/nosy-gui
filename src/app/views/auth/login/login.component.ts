@@ -45,9 +45,8 @@ export class LoginComponent implements OnInit {
         this.globalService.setLocalToken(response);
        this.router.navigateByUrl('/dashboard');
       }, err => {
-
         this.validUsername = true;
-        this.validUsernameMessage = err.error;
+        this.validUsernameMessage = err.error.message;
       }
     );
   }

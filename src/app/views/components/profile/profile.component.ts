@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
 
   }
   deleteProfile() {
-    this.profileService.deleteProfile(this.profile.email).subscribe();
+    this.profileService.deleteProfile().subscribe();
 
     this.globalService.cleanCookies();
   }
