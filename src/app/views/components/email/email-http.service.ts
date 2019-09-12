@@ -8,7 +8,7 @@ import {GlobalService} from '../../../auth/global.service';
 @Injectable()
 export class EmailHttpService {
 
-  private baseUrl = environment.backendUrl + '/inputsystems/';
+  private baseUrl = environment.backendUrl + '/input-systems/';
 
   constructor(private http: HttpClient, private globalService: GlobalService) {}
 

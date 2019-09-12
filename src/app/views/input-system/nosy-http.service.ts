@@ -17,23 +17,23 @@ export class NosyHttpService {
     //    'Authorization' : this.keycloakService.getToken().toString()
     //
     //     });
-    return this.http.get<[InputSystem]>(this.baseUrl + '/inputsystems', this.globalService.getAuthHeader());
+    return this.http.get<[InputSystem]>(this.baseUrl + '/input-systems', this.globalService.getAuthHeader());
   }
 
   postInputSystemName(inputSystemName: string) {
     const inputSystem = new InputSystem(inputSystemName);
     // noinspection JSAnnotator
     delete inputSystem.id;
-    return this.http.post(this.baseUrl + '/inputsystems', inputSystem, this.globalService.getAuthHeader());
+    return this.http.post(this.baseUrl + '/input-systems', inputSystem, this.globalService.getAuthHeader());
   }
 
   deleteExistingInputSystem(inputSystem: string) {
-    return this.http.delete(this.baseUrl + '/inputsystems/' + inputSystem, this.globalService.getAuthHeader());
+    return this.http.delete(this.baseUrl + '/input-systems/' + inputSystem, this.globalService.getAuthHeader());
   }
 
   updateExistingInputSystem(inputSystem: InputSystem) {
     const urlAdder = inputSystem.id;
-    return this.http.put(this.baseUrl + '/inputsystems/' + urlAdder, inputSystem, this.globalService.getAuthHeader());
+    return this.http.put(this.baseUrl + '/input-systems/' + urlAdder, inputSystem, this.globalService.getAuthHeader());
   }
 
 }
