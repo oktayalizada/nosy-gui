@@ -6,7 +6,7 @@ import {environment} from '../../../../environments/environment.prod';
 @Injectable()
 export class RegisterService {
 
-  private baseUrl = environment.backendUrl + '/users';
+  private baseUrl = environment.backendUrl + '/auth/users';
 
   constructor(private http: HttpClient) { }
 

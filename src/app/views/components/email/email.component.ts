@@ -181,6 +181,7 @@ export class EmailComponent implements OnInit {
   onAddNewEmailTemplate(form: NgForm) {
 
     const newTemplate = form.value;
+
     if (newTemplate.newFromProvider === '') {
       newTemplate.newFromProvider = 'Default';
     }

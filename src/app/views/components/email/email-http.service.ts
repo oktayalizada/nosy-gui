@@ -13,27 +13,28 @@ export class EmailHttpService {
   constructor(private http: HttpClient, private globalService: GlobalService) {}
 
   getEmailTemplates(inputSystemId): Observable<[EmailTemplate]> {
-    return this.http.get<[EmailTemplate]>(this.baseUrl  + inputSystemId + '/emailtemplates', this.globalService.getAuthHeader());
+    return this.http.get<[EmailTemplate]>(this.baseUrl  + inputSystemId + '/email-templates', this.globalService.getAuthHeader());
   }
 
   getAllAvailableProviders(): Observable<[string]> {
-    return this.http.get<[string]>(this.baseUrl  + 'emailproviders', this.globalService.getAuthHeader())
+    return this.http.get<[string]>(this.baseUrl  + 'email-providers', this.globalService.getAuthHeader())
   }
 
   postNewTemplate(newEmailTemplate, inputSystemId) {
-    return this.http.post(this.baseUrl + inputSystemId + '/emailtemplates', newEmailTemplate, this.globalService.getAuthHeader())
+    console.log(newEmailTemplate)
+    return this.http.post(this.baseUrl + inputSystemId + '/email-templates', newEmailTemplate, this.globalService.getAuthHeader())
   }
 
   deleteEmailTemplate(emailTemplateId, inputSystemName) {
-    return this.http.delete(this.baseUrl + inputSystemName + '/emailtemplates/' + emailTemplateId, this.globalService.getAuthHeader());
+    return this.http.delete(this.baseUrl + inputSystemName + '/email-templates/' + emailTemplateId, this.globalService.getAuthHeader());
   }
 
   updateEmailTemplate(updateTemplate, inputSystemName, emailTemplateId) {
-    return this.http.put(this.baseUrl + inputSystemName + '/emailtemplates/' + emailTemplateId, updateTemplate, this.globalService.getAuthHeader());
+    return this.http.put(this.baseUrl + inputSystemName + '/email-templates/' + emailTemplateId, updateTemplate, this.globalService.getAuthHeader());
   }
 
   postEmail(templateId, inputSystemId, postProperties) {
-    return this.http.post(this.baseUrl + inputSystemId + '/emailtemplates/' + templateId + '/post', postProperties, this.globalService.getAuthHeader());
+    return this.http.post(this.baseUrl + inputSystemId + '/email-templates/' + templateId + '/post', postProperties, this.globalService.getAuthHeader());
   }
 
 }
