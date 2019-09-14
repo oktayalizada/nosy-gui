@@ -12,20 +12,20 @@ import {NgSelectComponent} from '@ng-select/ng-select';
   styleUrls: ['./manual-email-sender.component.scss']
 })
 export class ManualEmailSenderComponent implements OnInit {
-  private selectedEmailTemplate: EmailTemplate;
-  private isSelectedEmailTemplate: boolean;
-  private selectedEmailTemplateId: string;
-  private isSelectedInputSystem: boolean;
-  private inputSystems: InputSystem[];
-  private availableProviders: [string];
+  selectedEmailTemplate: EmailTemplate;
+  isSelectedEmailTemplate: boolean;
+  selectedEmailTemplateId: string;
+  isSelectedInputSystem: boolean;
+  inputSystems: InputSystem[];
+  availableProviders: [string];
 
 
-  private emailTemplates: EmailTemplate[];
-  private colourOperationsSend: string;
-  private isOperationsSend: boolean;
-  private operationsSend: string;
+  emailTemplates: EmailTemplate[];
+  colourOperationsSend: string;
+  isOperationsSend: boolean;
+  operationsSend: string;
 
-  private selectedInputSystemId: string;
+  selectedInputSystemId: string;
 
   @ViewChild('chosenuser', {static: false}) public ngSelect: NgSelectComponent;
 
@@ -57,7 +57,7 @@ export class ManualEmailSenderComponent implements OnInit {
   }
 
 
-  onChangeInputSystemFirstForm() {
+  onChangeInputSystemFirstForm(event) {
     if (this.selectedInputSystemId !== null) {
 
       this.firstFormReset();

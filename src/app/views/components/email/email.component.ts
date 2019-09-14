@@ -12,24 +12,24 @@ import {NgSelectComponent, NgSelectModule} from '@ng-select/ng-select';
 
 })
 export class EmailComponent implements OnInit {
-  private selectedInputSystem: string;
-  private selectedInputSystemId: string;
-  private selectedEmailTemplate: EmailTemplate;
-  private selectedEmailTemplateId: string;
-  private inputSystemIdFotTemplateCreationId: string;
-  private isSelectedEmailTemplate: boolean;
-  private isSelectedInputSystem: boolean;
-  private isSelectedInputSystemForPost: boolean;
+  selectedInputSystem: string;
+  selectedInputSystemId: string;
+  selectedEmailTemplate: EmailTemplate;
+  selectedEmailTemplateId: string;
+  inputSystemIdFotTemplateCreationId: string;
+  isSelectedEmailTemplate: boolean;
+  isSelectedInputSystem: boolean;
+  isSelectedInputSystemForPost: boolean;
 
-  private inputSystems: InputSystem[];
-  private availableProviders: [string];
-  private postSuccessMessage: string;
-  private isPostSuccess: boolean;
-  private colourPostSuccessMessage: string;
-  private emailTemplates: EmailTemplate[];
-  private operationsUpdateAndDelete: string;
-  private isOperationsUpdateAndDelete: boolean;
-  private colourOperationsUpdateAndDelete: string;
+  inputSystems: InputSystem[];
+  availableProviders: [string];
+  postSuccessMessage: string;
+  isPostSuccess: boolean;
+  colourPostSuccessMessage: string;
+  emailTemplates: EmailTemplate[];
+  operationsUpdateAndDelete: string;
+  isOperationsUpdateAndDelete: boolean;
+  colourOperationsUpdateAndDelete: string;
 
   @ViewChild('chosenuser', {static: false}) public ngSelect: NgSelectComponent;
 

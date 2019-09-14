@@ -9,17 +9,17 @@ import {NgForm} from '@angular/forms';
 
 })
 export class InputSystemComponent implements OnInit {
-  private selectedInputSystemId: string;
+  selectedInputSystemId: string;
 
-  private inputSystems: InputSystem[];
-  private firstFormEnable: boolean;
-  private postSuccessMessage: string;
-  private isPostSuccess: boolean;
-  private colourPostSuccessMessage: string;
-  private operationsUpdateAndDelete: string;
-  private isOperationsUpdateAndDelete: boolean;
-  private colourOperationsUpdateAndDelete: string;
-  private firstFormUpdatableInputSystem: InputSystem;
+  inputSystems: InputSystem[];
+  firstFormEnable: boolean;
+  postSuccessMessage: string;
+  isPostSuccess: boolean;
+  colourPostSuccessMessage: string;
+  operationsUpdateAndDelete: string;
+  isOperationsUpdateAndDelete: boolean;
+  colourOperationsUpdateAndDelete: string;
+  firstFormUpdatableInputSystem: InputSystem;
 
   constructor(private nosyHttpService: NosyHttpService) {}
 
