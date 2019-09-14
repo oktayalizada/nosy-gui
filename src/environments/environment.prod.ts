@@ -5,5 +5,5 @@ import { KeycloakConfig } from 'keycloak-angular';
 
 export const environment = {
   production: true,
-  backendUrl: 'http://localhost:8081/api/v1'
+  backendUrl: 'https://nosy-admin.herokuapp.com/api/v1'
 };
