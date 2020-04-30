@@ -43,7 +43,7 @@
     "express": "^4.17.1",
     "flag-icon-css": "3.3.0",
     "font-awesome": "4.7.0",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "keycloak-angular": "6.1.0",
     "keycloak-js": "6.0.1",
     "moment": "2.24.0",
